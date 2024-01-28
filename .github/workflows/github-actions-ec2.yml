@@ -14,11 +14,12 @@ jobs:
     steps:
       - name: Checkout the files
         uses: actions/checkout@v3
-        - uses: actions/checkout@v3
-        - name: Set up Node.js 20
+
+      - name: Set up Node.js 20
         uses: actions/setup-node@v2
-  with:
-    node-version: '20'
+        with:
+          node-version: '20'
+
       - name: Deploy to Server 1
         uses: easingthemes/ssh-deploy@main
         env:
@@ -38,5 +39,5 @@ jobs:
             sudo apt-get install -y apache2
             sudo systemctl start apache2
             sudo systemctl enable apache2
-            cd home
+            cd /home
             sudo mv * /var/www/html
